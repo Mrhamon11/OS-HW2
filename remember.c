@@ -83,21 +83,12 @@ ssize_t procfile_read(struct file *filp, char __user *buf, size_t count, loff_t 
  * /proc/remember. */
 ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
 {
-<<<<<<< HEAD
     //int inputLen;
     char *page; /* don't touch */
     //char *pagePtr;
 
 
     //inputLen = 0;
-=======
-    int inputLen;
-    char *page; /* don't touch */
-    char *pagePtr;
-
-
-    inputLen = 0;
->>>>>>> 0db0465d8e160dcbf28b532a31645a3ae413e2b3
     
     /* Allocating kernel memory, don't touch. */
     page = (char *) vmalloc(count);
@@ -112,7 +103,6 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
 
     //printk("%d\n", count);
 
-<<<<<<< HEAD
     //for(pagePtr = page; *pagePtr != '\0'; pagePtr++){
     //    inputLen++;
     //}
@@ -128,20 +118,6 @@ ssize_t procfile_write(struct file *filp, const char __user *buf, size_t count, 
     memset(remember, 0, sizeof(remember));
     strncpy(remember, page, count);//inputLen);
     //printk("page has len %d\n", inputLen);
-=======
-    for(pagePtr = page; *pagePtr != '\0'; pagePtr++){
-        inputLen++;
-    }
-
-    if(inputLen > 79){
-       inputLen = 79;
-    }
-
-
-    memset(remember, 0, sizeof(remember));
-    strncpy(remember, page, inputLen);
-    printk("page has len %d\n", inputLen);
->>>>>>> 0db0465d8e160dcbf28b532a31645a3ae413e2b3
 
    /* Now do something with the data, here we just print it */
     printk("User has sent the value of %s\n", page);

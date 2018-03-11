@@ -1,0 +1,1 @@
+cmd_/home/amon/test/hello_proc/remember.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/amon/test/hello_proc/remember.ko /home/amon/test/hello_proc/remember.o /home/amon/test/hello_proc/remember.mod.o
